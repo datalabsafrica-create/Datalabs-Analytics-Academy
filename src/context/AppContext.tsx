@@ -34,13 +34,23 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     // Sync any new courses directly to the DB if missing
     import('../lib/seed').then(({ defaultCourses }) => {
       let updated = false;
-      const currentCourses = [...db.courses];
+      let currentCourses = [...db.courses];
+      
+      // Update existing courses and add new ones
       defaultCourses.forEach(dc => {
-        if (!currentCourses.find(c => c.id === dc.id)) {
+        const existingIndex = currentCourses.findIndex(c => c.id === dc.id);
+        if (existingIndex !== -1) {
+          // If the course completely changed (stringified)
+          if (JSON.stringify(currentCourses[existingIndex]) !== JSON.stringify(dc)) {
+            currentCourses[existingIndex] = dc;
+            updated = true;
+          }
+        } else {
           currentCourses.push(dc);
           updated = true;
         }
       });
+      
       if (updated) {
         setDb(prev => ({ ...prev, courses: currentCourses }));
       }

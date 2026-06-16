@@ -55,7 +55,7 @@ export function CertificateView() {
             <div className="mb-6 pb-6 border-b border-slate-100">
               <div className="flex justify-between text-sm mb-2">
                 <span className="text-slate-500 font-bold">Course Verification</span>
-                <span className="font-bold text-slate-900">${course.price}</span>
+                <span className="font-bold text-slate-900">$9.99</span>
               </div>
               <div className="flex justify-between text-sm mb-2">
                 <span className="text-slate-500 font-bold">Processing</span>
@@ -63,16 +63,29 @@ export function CertificateView() {
               </div>
               <div className="flex justify-between text-lg font-bold mt-4 pt-4 border-t border-slate-100">
                 <span>Total Due</span>
-                <span>${course.price}</span>
+                <span>$9.99</span>
               </div>
             </div>
             
             <button 
               onClick={handleFakePayment}
               disabled={isProcessing}
-              className={`w-full text-white font-bold py-4 px-4 rounded-2xl transition shadow-md ${isProcessing ? 'bg-blue-400 cursor-not-allowed shadow-none' : 'bg-blue-600 hover:bg-blue-700 shadow-blue-200'}`}
+              className={`w-full text-white font-bold py-4 px-4 rounded-2xl transition shadow-md mb-3 ${isProcessing ? 'bg-blue-400 cursor-not-allowed shadow-none' : 'bg-blue-600 hover:bg-blue-700 shadow-blue-200'}`}
             >
-              {isProcessing ? 'Processing Payment...' : 'Simulate Payment (Dev)'}
+              {isProcessing ? 'Processing Payment...' : 'Simulate Card Payment (Dev)'}
+            </button>
+
+            <button 
+              onClick={handleFakePayment}
+              disabled={isProcessing}
+              className={`w-full text-slate-900 border-2 border-yellow-400 font-bold py-4 px-4 rounded-2xl transition shadow-md flex items-center justify-center ${isProcessing ? 'bg-yellow-200 cursor-not-allowed shadow-none' : 'bg-yellow-400 hover:bg-yellow-500 shadow-yellow-200'}`}
+            >
+              {isProcessing ? 'Processing Payment...' : (
+                <>
+                  <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor"><path d="M11.996 9.873l2.806 2.806-2.806 2.806-2.806-2.806 2.806-2.806zm4.613-1.807L11.996 3.453l-4.613 4.613 1.807 1.807 2.806-2.806 2.806 2.806 1.807-1.807zm0 9.227l-1.807-1.807-2.806 2.807-2.806-2.807-1.807 1.807 4.613 4.613 4.613-4.613zm5.938-4.613L18.423 8.557l-1.807 1.807 2.308 2.309zM5.577 15.443l1.807-1.807-2.309-2.309 2.309-2.309-1.807-1.807L1.455 11.28z"/></svg> 
+                  Pay with Binance Pay
+                </>
+              )}
             </button>
             <p className="text-xs text-center text-slate-400 mt-4">
               * This is a simulated payment gateway. No real charges are made.
@@ -93,7 +106,7 @@ export function CertificateView() {
           onClick={() => setShowPayment(true)}
           className="bg-blue-600 text-white font-bold py-4 px-8 rounded-2xl hover:bg-blue-700 transition shadow-lg shadow-blue-200"
         >
-          Claim Certificate for ${course.price}
+          Claim Certificate for $9.99
         </button>
       </div>
     );

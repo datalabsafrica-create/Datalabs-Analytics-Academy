@@ -10,10 +10,7 @@ export function AdminDashboard() {
 
   const uniqueUsersEnrolled = new Set(enrollments.map(e => e.userId)).size;
   const totalRevenue = enrollments.filter(e => e.isPaidForCertificate)
-    .reduce((sum, e) => {
-      const c = courses.find(cr => cr.id === e.courseId);
-      return sum + (c ? c.price : 0);
-    }, 0);
+    .reduce((sum, e) => sum + 9.99, 0);
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8 w-full">
