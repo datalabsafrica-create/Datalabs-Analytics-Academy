@@ -34,21 +34,14 @@ export default function App() {
             <Route path="register" element={<Register />} />
             <Route path="curriculum" element={<Curriculum />} />
             
+            <Route path="resources" element={<Resources />} />
+            <Route path="curriculum/power-bi" element={<PowerBICurriculum />} />
+            <Route path="course/:id" element={<CourseDetail />} />
+            <Route path="course/:courseId/module/:moduleId" element={<ModuleViewer />} />
+            
             {/* Protected Routes */}
             <Route path="dashboard" element={
               <ProtectedRoute><Dashboard /></ProtectedRoute>
-            } />
-            <Route path="resources" element={
-              <ProtectedRoute><Resources /></ProtectedRoute>
-            } />
-            <Route path="curriculum/power-bi" element={
-              <ProtectedRoute><PowerBICurriculum /></ProtectedRoute>
-            } />
-            <Route path="course/:id" element={
-              <ProtectedRoute><CourseDetail /></ProtectedRoute>
-            } />
-            <Route path="course/:courseId/module/:moduleId" element={
-              <ProtectedRoute><ModuleViewer /></ProtectedRoute>
             } />
             <Route path="certificate/:id" element={
               <ProtectedRoute><CertificateView /></ProtectedRoute>

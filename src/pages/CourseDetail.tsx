@@ -23,8 +23,8 @@ export function CourseDetail() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 w-full">
-      <Link to="/dashboard" className="text-sm text-blue-600 hover:underline flex items-center mb-6">
-        <ArrowLeft className="w-4 h-4 mr-1" /> Back to Dashboard
+      <Link to={user ? "/dashboard" : "/curriculum"} className="text-sm text-blue-600 hover:underline flex items-center mb-6">
+        <ArrowLeft className="w-4 h-4 mr-1" /> {user ? "Back to Dashboard" : "Back to Curriculum"}
       </Link>
 
       <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-8 mb-8 relative overflow-hidden">
@@ -33,7 +33,20 @@ export function CourseDetail() {
           <h1 className="text-3xl font-bold text-slate-900 mb-4">{course.title}</h1>
           <p className="text-slate-600 text-lg mb-8 max-w-2xl">{course.description}</p>
           
-          {!enrollment && (
+          {!user && (
+            <div className="bg-orange-50 border border-orange-100 rounded-3xl p-6 mb-4">
+              <h3 className="font-semibold text-orange-900 mb-2">You are browsing anonymously</h3>
+              <p className="text-orange-800 text-sm mb-4">You can view all course materials for free, but you must log in to track your progress and earn certificates.</p>
+              <button 
+                onClick={() => navigate('/login')}
+                className="bg-orange-600 text-white font-bold py-2 px-6 rounded-xl hover:bg-orange-700 transition text-sm"
+              >
+                Log in / Register
+              </button>
+            </div>
+          )}
+
+          {user && !enrollment && (
             <button 
               onClick={handleEnroll}
               className="bg-blue-600 text-white font-bold py-3 px-8 rounded-2xl shadow-lg shadow-blue-200 hover:bg-blue-700 transition"
@@ -63,7 +76,7 @@ export function CourseDetail() {
       <div className="space-y-4">
         {course.modules.map((module, idx) => {
           const isCompleted = enrollment?.completedModules.includes(module.id);
-          const isLocked = !enrollment;
+          const isLocked = false;
           
           return (
             <div key={module.id} className={`bg-white rounded-3xl border p-6 flex items-center justify-between ${isLocked ? 'border-slate-200 bg-slate-50' : 'border-slate-200'}`}>

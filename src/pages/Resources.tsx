@@ -4,10 +4,6 @@ import { Navigate } from 'react-router-dom';
 import { Download, FileSpreadsheet, FileText, FileCode, Archive } from 'lucide-react';
 
 export function Resources() {
-  const { user } = useApp();
-
-  if (!user) return <Navigate to="/login" />;
-
   const downloadFile = (fileName: string, content: string, mimeType: string) => {
     const blob = new Blob([content], { type: mimeType });
     const url = URL.createObjectURL(blob);

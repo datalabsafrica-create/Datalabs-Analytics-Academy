@@ -16,11 +16,11 @@ export function ModuleViewer() {
   const module = course?.modules.find(m => m.id === moduleId);
   const enrollment = enrollments.find(e => e.courseId === courseId && e.userId === user?.id);
 
-  if (!course || !module || !enrollment) {
+  if (!course || !module) {
     return <div className="p-8">Module not available.</div>;
   }
 
-  const isCompleted = enrollment.completedModules.includes(module.id);
+  const isCompleted = enrollment?.completedModules.includes(module.id) || false;
   const quiz = module.quiz;
   
   const calculateScore = () => {
@@ -42,7 +42,7 @@ export function ModuleViewer() {
     const score = calculateScore();
     setShowResults(true);
 
-    if (score >= quiz.passMarkPercentage) {
+    if (score >= quiz.passMarkPercentage && user) {
       updateProgress(course.id, module.id, true);
     }
   };
@@ -257,6 +257,13 @@ This material is part of the Data-to-Dollars Accelerator.`;
                 {calculateScore() >= quiz.passMarkPercentage ? 'Quiz Passed!' : 'Quiz Failed'}
               </h3>
               <p className="mb-4 text-slate-300">You scored {calculateScore()}% (Required: {quiz.passMarkPercentage}%)</p>
+              
+              {!user && calculateScore() >= quiz.passMarkPercentage && (
+                 <div className="bg-orange-900/30 border border-orange-500/50 p-4 rounded-xl mb-4">
+                   <p className="text-orange-300 text-sm mb-2"><AlertCircle className="w-4 h-4 inline mr-1" /> Progress not saved because you are browsing anonymously.</p>
+                   <Link to="/login" className="text-xs font-bold text-white bg-orange-600 hover:bg-orange-700 px-4 py-2 rounded-lg inline-block">Log in to save progress</Link>
+                 </div>
+              )}
               
               {calculateScore() < quiz.passMarkPercentage && (
                 <button 
