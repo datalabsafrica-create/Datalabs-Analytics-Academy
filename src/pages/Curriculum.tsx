@@ -250,7 +250,7 @@ export function Curriculum() {
         <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
           <Calendar className="w-8 h-8" />
         </div>
-        <h1 className="text-4xl font-bold text-slate-900 mb-4">24-Week Data-to-Dollars Accelerator</h1>
+        <h1 className="text-4xl font-bold text-slate-900 mb-4">24-Week Datalabs Analytics Academy</h1>
         <p className="text-slate-600 text-lg">
           A blueprint designed to bridge the gap between technical mastery and real-world income generation. Master Excel, SQL, and Power BI while learning how to monetize your skills.
         </p>

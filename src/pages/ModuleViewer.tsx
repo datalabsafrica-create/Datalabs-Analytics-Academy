@@ -137,7 +137,7 @@ ANSWER KEY
 4. Data Quality Issues: Yes, Record ID 1 and ID 5 appear to be identical transactions for Alpha Widget on different dates. When data cleaning, you would flag this to ensure it's not a duplicate entry.
 
 ================================================
-This material is part of the Data-to-Dollars Accelerator.`;
+This material is part of Datalabs Analytics Academy.`;
 
     downloadFile(`Lecture_${module.id}.txt`, pdfContent, 'text/plain');
     alert("Simulated PDF download started! (Downloaded as .txt for demo purposes)");

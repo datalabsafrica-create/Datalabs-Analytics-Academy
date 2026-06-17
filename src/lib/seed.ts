@@ -1151,7 +1151,7 @@ As a highly-paid consultant, your time is your most constrained asset. If you ar
         title: "Week 24: Capstone 4: The Business Launch",
         content: `### Capstone 4: The Business Launch\n\n**Primary Skill Focus:** Full Lifecycle Consulting\n
 ### 1. The Business Value (The "Dollars")
-This is the culmination of the Data-to-Dollars Accelerator. You are not just building technical assets; you are launching a full-scale Data Consulting firm. This module enforces the integration of your technical mastery, your portfolio, your pitching strategy, and your sales engine into a cohesive, unstoppable business system. Execution here is what generates the revenue.
+This is the culmination of Datalabs Analytics Academy. You are not just building technical assets; you are launching a full-scale Data Consulting firm. This module enforces the integration of your technical mastery, your portfolio, your pitching strategy, and your sales engine into a cohesive, unstoppable business system. Execution here is what generates the revenue.
 
 ### 2. Core Technical Concepts
 - **Entity Setup:** Understanding the basics of establishing an LLC and securing professional liability insurance for enterprise clients.

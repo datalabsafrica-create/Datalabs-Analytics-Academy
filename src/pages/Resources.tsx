@@ -22,7 +22,7 @@ export function Resources() {
   };
 
   const handleDownloadDoc = (name: string) => {
-    const content = `DATA-TO-DOLLARS ACCELERATOR RESOURCE\n\nCheat Sheet / Note: ${name}\n\nContents for this resource go here.`;
+    const content = `DATALABS ANALYTICS ACADEMY RESOURCE\n\nCheat Sheet / Note: ${name}\n\nContents for this resource go here.`;
     downloadFile(name, content, 'text/plain');
   };
 

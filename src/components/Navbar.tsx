@@ -44,7 +44,7 @@ export function Navbar() {
                       My Dashboard
                     </Link>
                     <Link to="/curriculum" className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-md text-sm font-medium">
-                      Accelerator
+                      Academy
                     </Link>
                     <Link to="/curriculum/power-bi" className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-md text-sm font-medium">
                       Power BI Masterclass

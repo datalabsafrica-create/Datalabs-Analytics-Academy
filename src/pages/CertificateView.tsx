@@ -134,7 +134,7 @@ export function CertificateView() {
           </div>
           <div className="text-center relative z-10">
             <h2 className="text-xl font-bold tracking-[0.2em] text-gray-500 uppercase mb-8">Certificate of Completion</h2>
-            <h1 className="text-4xl sm:text-5xl font-serif text-gray-900 mb-12">Data-to-Dollars Accelerator</h1>
+            <h1 className="text-4xl sm:text-5xl font-serif text-gray-900 mb-12">Datalabs Analytics Academy</h1>
             
             <p className="text-lg text-gray-600 mb-4">This is to certify that</p>
             <p className="text-3xl font-bold text-blue-900 border-b-2 border-gray-200 pb-4 mb-4 mx-8 inline-block min-w-[300px]">
